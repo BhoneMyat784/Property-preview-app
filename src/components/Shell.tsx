@@ -27,11 +27,11 @@ export function Header() {
           maxWidth: 1240,
           width: "100%",
           alignSelf: "center",
-          paddingHorizontal: wide ? 24 : 16,
+          paddingHorizontal: 24,
           minHeight: 86,
           flexDirection: "row",
           alignItems: "center",
-          gap: wide ? 14 : 8,
+          gap: wide ? 14 : 12,
         }}
       >
         <Link href="/" asChild>
@@ -41,7 +41,6 @@ export function Header() {
               flexDirection: "row",
               alignItems: "center",
               gap: 11,
-              flexShrink: 1,
             }}
           >
             <View
@@ -53,11 +52,11 @@ export function Header() {
             >
               <Icon name="home" size={23} color="white" />
             </View>
-            <View style={{ flexShrink: 1, minWidth: 0 }}>
+            <View>
               <Text
                 style={{
                   fontFamily: font,
-                  fontSize: wide ? 19 : 16,
+                  fontSize: 19,
                   fontWeight: "600",
                   color: C.ink,
                   letterSpacing: -0.5,

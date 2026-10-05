@@ -25,7 +25,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run dev",
+    command: "NODE_ENV=development npm run dev",
     url: "http://localhost:8081",
     reuseExistingServer: false,
     timeout: 30000,

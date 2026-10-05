@@ -54,6 +54,7 @@ export default function Home() {
         >
           <View
             style={{
+              pointerEvents: "none",
               position: "absolute",
               inset: 0,
               backgroundColor: "rgba(7,34,26,0.48)",
@@ -249,6 +250,7 @@ export default function Home() {
                 >
                   <View
                     style={{
+                      pointerEvents: "none",
                       position: "absolute",
                       inset: 0,
                       backgroundColor: "rgba(9,36,27,.48)",
@@ -262,6 +264,7 @@ export default function Home() {
                   </Body>
                   <View
                     style={{
+                      pointerEvents: "none",
                       position: "absolute",
                       right: 26,
                       bottom: 30,
