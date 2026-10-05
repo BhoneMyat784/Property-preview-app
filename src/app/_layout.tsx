@@ -6,6 +6,7 @@ import { AuthProvider } from "../lib/auth";
 import { FavoritesProvider } from "../lib/favorites";
 import { Header, Footer } from "../components/Shell";
 import { C, Loading, Page, Button, Notice } from "../components/ui";
+import { ThemeProvider } from "../lib/theme";
 import WebStyles from "../components/WebStyles";
 export function ErrorBoundary({ error, retry }: ErrorBoundaryProps) {
   return (
@@ -22,21 +23,23 @@ export default function Layout() {
     scroll.current?.scrollTo({ y: 0, animated: false });
   }, [pathname]);
   return (
-    <LanguageProvider>
-      <AuthProvider>
-        <FavoritesProvider>
-          <WebStyles />
-          <View style={{ flex: 1, backgroundColor: C.cream }}>
-            <Header />
-            <ScrollView ref={scroll} contentContainerStyle={{ flexGrow: 1 }}>
-              <Suspense fallback={<Loading />}>
-                <Slot />
-              </Suspense>
-              <Footer />
-            </ScrollView>
-          </View>
-        </FavoritesProvider>
-      </AuthProvider>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <FavoritesProvider>
+            <WebStyles />
+            <View style={{ flex: 1, backgroundColor: C.cream }}>
+              <Header />
+              <ScrollView ref={scroll} contentContainerStyle={{ flexGrow: 1 }}>
+                <Suspense fallback={<Loading />}>
+                  <Slot />
+                </Suspense>
+                <Footer />
+              </ScrollView>
+            </View>
+          </FavoritesProvider>
+        </AuthProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }

@@ -27,7 +27,7 @@ export function PropertyCard({ listing: p }: { listing: Listing }) {
         borderWidth: 1,
         borderColor: C.line,
         borderRadius: 16,
-        backgroundColor: C.white,
+        backgroundColor: C.surface,
         overflow: "hidden",
       }}
     >
@@ -139,7 +139,7 @@ export function PropertyCard({ listing: p }: { listing: Listing }) {
           position: "absolute",
           right: 16,
           top: 16,
-          backgroundColor: C.white,
+          backgroundColor: C.surface,
           padding: 9,
           borderRadius: 25,
         }}
@@ -161,7 +161,7 @@ export function Badge({
     <View
       style={{
         alignSelf: "flex-start",
-        backgroundColor: dark ? C.dark : C.white,
+        backgroundColor: dark ? C.dark : C.surface,
         borderRadius: 6,
         paddingHorizontal: 10,
         paddingVertical: 5,

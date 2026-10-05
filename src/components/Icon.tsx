@@ -1,6 +1,9 @@
 import React from "react";
 import Svg, { Path, Rect, Circle } from "react-native-svg";
+import { C } from "../lib/colors";
 export type IconName =
+  | "sun"
+  | "moon"
   | "home"
   | "search"
   | "arrow"
@@ -17,6 +20,8 @@ export type IconName =
   | "close"
   | "phone";
 const paths: Partial<Record<IconName, string>> = {
+  sun: "M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4",
+  moon: "M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z",
   home: "M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z",
   search: "m21 21-5-5",
   arrow: "M4 12h16m-6-6 6 6-6 6",
@@ -38,7 +43,7 @@ const paths: Partial<Record<IconName, string>> = {
 export function Icon({
   name,
   size = 20,
-  color = "#244c40",
+  color = C.green,
   filled = false,
 }: {
   name: IconName;
@@ -58,6 +63,7 @@ export function Icon({
       strokeLinejoin="round"
     >
       <Path d={paths[name]} />
+      {name === "sun" && <Circle cx="12" cy="12" r="4" />}
       {name === "search" && <Circle cx="10.5" cy="10.5" r="6.5" />}
       {name === "pin" && <Circle cx="12" cy="10" r="2.5" />}
     </Svg>

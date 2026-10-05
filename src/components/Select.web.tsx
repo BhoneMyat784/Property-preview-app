@@ -35,7 +35,7 @@ export default function Select({
           borderRadius: 9,
           padding: "10px 32px 10px 12px",
           minHeight: 46,
-          backgroundColor: C.white,
+          backgroundColor: C.surface,
           width: "100%",
           cursor: disabled ? "default" : "pointer",
           opacity: disabled ? 0.5 : 1,

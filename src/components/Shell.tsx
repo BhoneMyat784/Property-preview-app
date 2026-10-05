@@ -4,17 +4,19 @@ import { Link, usePathname } from "expo-router";
 import { useLanguage } from "../lib/i18n";
 import { useAuth } from "../lib/auth";
 import { Body, Button, C, font, useWide } from "./ui";
+import { useTheme } from "../lib/theme";
 import { Icon } from "./Icon";
 export function Header() {
   const { t, locale, setLocale } = useLanguage();
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const wide = useWide();
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   return (
     <View
       style={{
-        backgroundColor: C.white,
+        backgroundColor: C.surface,
         borderBottomWidth: 1,
         borderBottomColor: C.line,
         zIndex: 50,
@@ -25,32 +27,37 @@ export function Header() {
           maxWidth: 1240,
           width: "100%",
           alignSelf: "center",
-          paddingHorizontal: 24,
+          paddingHorizontal: wide ? 24 : 16,
           minHeight: 86,
           flexDirection: "row",
           alignItems: "center",
-          gap: wide ? 14 : 12,
+          gap: wide ? 14 : 8,
         }}
       >
         <Link href="/" asChild>
           <Pressable
             accessibilityLabel="Property Portal home"
-            style={{ flexDirection: "row", alignItems: "center", gap: 11 }}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 11,
+              flexShrink: 1,
+            }}
           >
             <View
               style={{
                 padding: 10,
                 borderRadius: 11,
-                backgroundColor: C.green,
+                backgroundColor: C.primary,
               }}
             >
               <Icon name="home" size={23} color="white" />
             </View>
-            <View>
+            <View style={{ flexShrink: 1, minWidth: 0 }}>
               <Text
                 style={{
                   fontFamily: font,
-                  fontSize: 19,
+                  fontSize: wide ? 19 : 16,
                   fontWeight: "600",
                   color: C.ink,
                   letterSpacing: -0.5,
@@ -93,6 +100,26 @@ export function Header() {
             </Button>
           </>
         )}
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t(
+            theme === "dark" ? "switchToLight" : "switchToDark",
+          )}
+          {...{ "aria-pressed": theme === "dark" }}
+          onPress={toggleTheme}
+          style={{
+            padding: 9,
+            minWidth: 40,
+            minHeight: 40,
+            alignItems: "center",
+            justifyContent: "center",
+            borderWidth: 1,
+            borderColor: C.line,
+            borderRadius: 8,
+          }}
+        >
+          <Icon name={theme === "dark" ? "sun" : "moon"} color={C.green} />
+        </Pressable>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={
@@ -180,7 +207,7 @@ export function Footer() {
       style={{
         borderTopWidth: 1,
         borderTopColor: C.line,
-        backgroundColor: C.white,
+        backgroundColor: C.surface,
         marginTop: 30,
       }}
     >

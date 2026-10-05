@@ -29,12 +29,68 @@
   font-display: swap;
   unicode-range: U+1000-109F, U+A9E0-A9FE, U+AA60-AA7F;
 }
+:root {
+  color-scheme: light;
+  --portal-accent: #1c5945;
+  --portal-primary: #1c5945;
+  --portal-ink: #172f28;
+  --portal-muted: #6d7d75;
+  --portal-line: #e2e8e2;
+  --portal-background: #f7f8f3;
+  --portal-light: #edf4ee;
+  --portal-surface: #ffffff;
+  --portal-danger: #a43636;
+  --portal-danger-background: #fcf0ef;
+  --portal-placeholder: #738078;
+  --portal-cta: #e9f1e8;
+  --portal-focus: #508868;
+  --portal-selection: #cce4d4;
+  --portal-scrollbar: #c7d4c9;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --portal-accent: #95d6b5;
+  --portal-primary: #21694f;
+  --portal-ink: #e7f0e9;
+  --portal-muted: #afbeb4;
+  --portal-line: #384d42;
+  --portal-background: #101b16;
+  --portal-light: #253b2e;
+  --portal-surface: #1b2b22;
+  --portal-danger: #ffa6a6;
+  --portal-danger-background: #422727;
+  --portal-placeholder: #a2b2a8;
+  --portal-cta: #253b2e;
+  --portal-focus: #95d6b5;
+  --portal-selection: #345942;
+  --portal-scrollbar: #4b6354;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --portal-accent: #95d6b5;
+    --portal-primary: #21694f;
+    --portal-ink: #e7f0e9;
+    --portal-muted: #afbeb4;
+    --portal-line: #384d42;
+    --portal-background: #101b16;
+    --portal-light: #253b2e;
+    --portal-surface: #1b2b22;
+    --portal-danger: #ffa6a6;
+    --portal-danger-background: #422727;
+    --portal-placeholder: #a2b2a8;
+    --portal-cta: #253b2e;
+    --portal-focus: #95d6b5;
+    --portal-selection: #345942;
+    --portal-scrollbar: #4b6354;
+  }
+}
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
-  background: #f7f8f3;
+  background: var(--portal-background);
 }
 * {
   box-sizing: border-box;
@@ -53,21 +109,22 @@ input:focus-visible,
 textarea:focus-visible,
 a:focus-visible,
 button:focus-visible,
-[role="button"]:focus-visible {
-  outline: 3px solid #89b59c;
+[role="button"]:focus-visible,
+[role="switch"]:focus-visible {
+  outline: 3px solid var(--portal-focus);
   outline-offset: 3px;
 }
 input::placeholder,
 textarea::placeholder {
-  color: #9aa69e;
+  color: var(--portal-placeholder);
 }
 ::selection {
-  background: #cce4d4;
+  background: var(--portal-selection);
 }
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c7d4c9;
+  background: var(--portal-scrollbar);
   border-radius: 8px;
 }

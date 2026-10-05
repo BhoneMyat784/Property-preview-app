@@ -35,7 +35,7 @@ export default function Select({
         <ScrollView
           style={{
             maxHeight: 230,
-            backgroundColor: C.white,
+            backgroundColor: C.surface,
             borderWidth: 1,
             borderColor: C.line,
             borderRadius: 9,

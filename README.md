@@ -29,3 +29,7 @@ npm run test:e2e
 ```
 
 Web filters persist in the URL, public pages support Burmese and English, and screens use the API boundary rather than server internals.
+
+## Appearance
+
+Use the moon/sun button in the header to switch between light and dark mode. The app initially follows your system appearance, including changes while it is open. A manual choice is saved in this browser and synchronized across open tabs. The toggle supports keyboard activation and Burmese/English labels. Theme preferences stay on the device and require no account.

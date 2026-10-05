@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 export const en = {
+  switchToDark: "Switch to dark mode",
+  switchToLight: "Switch to light mode",
   buy: "Buy",
   rent: "Rent",
   sell: "List a property",
@@ -204,6 +206,8 @@ export const en = {
 } as const;
 type Key = keyof typeof en;
 const my: Record<Key, string> = {
+  switchToDark: "အမှောင်စနစ်သို့ပြောင်းရန်",
+  switchToLight: "အလင်းစနစ်သို့ပြောင်းရန်",
   buy: "ဝယ်ရန်",
   rent: "ငှားရန်",
   sell: "အိမ်ခြံမြေကြော်ငြာတင်ရန်",

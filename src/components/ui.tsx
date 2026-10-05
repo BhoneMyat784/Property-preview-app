@@ -15,17 +15,8 @@ import { Link, type Href } from "expo-router";
 import { useLanguage } from "../lib/i18n";
 import { useAuth } from "../lib/auth";
 import { Icon, type IconName } from "./Icon";
-export const C = {
-  green: "#1c5945",
-  dark: "#183c32",
-  ink: "#172f28",
-  muted: "#6d7d75",
-  line: "#e2e8e2",
-  cream: "#f7f8f3",
-  light: "#edf4ee",
-  white: "#fff",
-  red: "#a43636",
-};
+import { C } from "../lib/colors";
+export { C } from "../lib/colors";
 export const font = "Portal";
 export function Page({
   children,
@@ -132,11 +123,11 @@ export function Button({
         gap: 8,
         backgroundColor:
           variant === "primary"
-            ? C.green
+            ? C.primary
             : variant === "secondary"
               ? C.light
               : variant === "danger"
-                ? "#fceeee"
+                ? C.dangerBackground
                 : "transparent",
         borderWidth: variant === "secondary" ? 1 : 0,
         borderColor: C.line,
@@ -187,7 +178,7 @@ export function Field({
         value={value}
         onChangeText={onChangeText}
         multiline={multiline}
-        placeholderTextColor="#99a59f"
+        placeholderTextColor={C.placeholder}
         style={[
           styles.input,
           multiline ? { height: 150, textAlignVertical: "top" } : {},
@@ -210,7 +201,7 @@ export function Panel({
         {
           padding: 24,
           borderRadius: 16,
-          backgroundColor: C.white,
+          backgroundColor: C.surface,
           borderWidth: 1,
           borderColor: C.line,
           gap: 16,
@@ -235,7 +226,7 @@ export function Notice({
       accessibilityRole={error ? "alert" : "text"}
       style={{
         padding: 14,
-        backgroundColor: error ? "#fcf0ef" : C.light,
+        backgroundColor: error ? C.dangerBackground : C.light,
         borderRadius: 10,
       }}
     >
@@ -347,7 +338,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 13,
     paddingVertical: 11,
     minHeight: 46,
-    backgroundColor: C.white,
+    backgroundColor: C.surface,
   },
   row: { flexDirection: "row", alignItems: "center", gap: 12 },
   wrap: { flexDirection: "row", flexWrap: "wrap", gap: 20 },

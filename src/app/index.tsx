@@ -97,7 +97,7 @@ export default function Home() {
             style={{
               margin: wide ? 32 : 18,
               padding: wide ? 24 : 18,
-              backgroundColor: C.white,
+              backgroundColor: C.surface,
               borderRadius: 16,
               boxShadow: "0px 10px 30px rgba(0,0,0,.08)",
             }}
@@ -161,7 +161,7 @@ export default function Home() {
                   borderRadius: 14,
                   borderWidth: 1,
                   borderColor: C.line,
-                  backgroundColor: C.white,
+                  backgroundColor: C.surface,
                 }}
               >
                 <View
@@ -281,7 +281,7 @@ export default function Home() {
       </View>
       <View
         style={{
-          backgroundColor: "#e9f1e8",
+          backgroundColor: C.cta,
           borderRadius: 20,
           padding: wide ? 42 : 25,
           flexDirection: wide ? "row" : "column",
